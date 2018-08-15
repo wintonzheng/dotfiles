@@ -84,3 +84,4 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " tagbar shortcut
 nmap <silent> <C-t> :TagbarToggle<CR>
+vmap " :w !pbcopy<CR><CR>
