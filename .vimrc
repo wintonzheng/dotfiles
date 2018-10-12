@@ -8,6 +8,8 @@ Plug 'junegunn/fzf',                 { 'dir': '~/.fzf', 'do': './install --all' 
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'majutsushi/tagbar'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 
@@ -85,3 +87,6 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " tagbar shortcut
 nmap <silent> <C-t> :TagbarToggle<CR>
 vmap " :w !pbcopy<CR><CR>
+
+" autocomplete
+let g:jedi#completions_command = "<C-N>"
