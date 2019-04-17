@@ -10,6 +10,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'majutsushi/tagbar'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'davidhalter/jedi-vim'
+Plug 'ruanyl/vim-gh-line'
 call plug#end()
 
 
