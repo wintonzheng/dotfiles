@@ -1,18 +1,35 @@
 syntax on
 
-call plug#begin()
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/fzf',                 { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-unimpaired'
-Plug 'majutsushi/tagbar'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'davidhalter/jedi-vim'
-Plug 'ruanyl/vim-gh-line'
-call plug#end()
+set nocompatible              " required
+filetype off                  " required
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'majutsushi/tagbar'
+" Require ctags installation.  brew install ctags
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+" ...
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " searching
 set ignorecase
@@ -91,3 +108,6 @@ vmap " :w !pbcopy<CR><CR>
 
 " autocomplete
 let g:jedi#completions_command = "<C-N>"
+
+" python highlight
+let python_highlight_all=1
