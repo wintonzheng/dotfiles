@@ -23,6 +23,8 @@ Plugin 'majutsushi/tagbar'
 " Require ctags installation.  brew install ctags
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Ag search in vim
+Plugin 'rking/ag.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 " ...
