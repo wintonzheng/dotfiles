@@ -14,17 +14,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'majutsushi/tagbar'
-" Require ctags installation.  brew install ctags
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Ag search in vim
+" Ag search for vim
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'dense-analysis/ale'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 " ...
@@ -107,9 +106,3 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " tagbar shortcut
 nmap <silent> <C-t> :TagbarToggle<CR>
 vmap " :w !pbcopy<CR><CR>
-
-" autocomplete
-let g:jedi#completions_command = "<C-N>"
-
-" python highlight
-let python_highlight_all=1
