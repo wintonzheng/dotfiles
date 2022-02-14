@@ -6,6 +6,8 @@ alias pull="git pull --rebase origin"
 alias cpr="gh pr create"
 alias pcpr="git pull --rebase origin & hub pull-request -m \"\""
 
+export PYTHONPATH="$PWD"
+
 # run pipenv shell automatically
 function auto_pipenv_shell {
     if [ ! -n "${PIPENV_ACTIVE+1}" ]; then
