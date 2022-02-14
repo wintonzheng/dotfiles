@@ -1,0 +1,55 @@
+repos:
+
+# Standard hooks
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.1.0
+  hooks:
+  - id: check-added-large-files
+  - id: check-case-conflict
+  - id: check-merge-conflict
+  - id: check-symlinks
+  - id: check-yaml
+  - id: debug-statements
+  - id: end-of-file-fixer
+  - id: mixed-line-ending
+  - id: requirements-txt-fixer
+  - id: trailing-whitespace
+  - id: fix-encoding-pragma
+
+# Black, the code formatter, natively supports pre-commit
+- repo: https://github.com/psf/black
+  rev: 22.1.0
+  hooks:
+  - id: black
+    # By default, this ignores pyi files, though black supports them
+    types: [text]
+    files: \.pyi?$
+
+- repo: https://gitlab.com/pycqa/flake8
+  rev: 4.0.1
+  hooks:
+  - id: flake8
+    additional_dependencies: [flake8-bugbear, pep8-naming]
+
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: v0.931
+  hooks:
+  - id: mypy
+    args: [--show-error-codes]
+
+# Check for spelling
+- repo: https://github.com/codespell-project/codespell
+  rev: v2.1.0
+  hooks:
+  - id: codespell
+    exclude: ".supp$"
+    args: ["-L", "nd,ot,thist"]
+
+# Disallow some common capitalization mistakes
+- repo: local
+  hooks:
+  - id: disallow-caps
+    name: Disallow improper capitalization
+    language: pygrep
+    entry: PyBind|Numpy|Cmake|CCache|PyTest
+    exclude: ^\.pre-commit-config.yaml$
