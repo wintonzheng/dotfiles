@@ -5,6 +5,7 @@ alias gpf="git push origin HEAD --force-with-lease"
 alias pull="git pull --rebase origin"
 alias cpr="gh pr create"
 alias pcpr="git pull --rebase origin & hub pull-request -m \"\""
+alias x="exit"
 
 export PYTHONPATH="$PWD"
 
