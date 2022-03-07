@@ -24,6 +24,7 @@ Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'dense-analysis/ale'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'ruanyl/vim-gh-line'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 " ...
