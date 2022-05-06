@@ -105,3 +105,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " tagbar shortcut
 nmap <silent> <C-t> :TagbarToggle<CR>
 vmap " :w !pbcopy<CR><CR>
+
+" Linting - ALE setup
+let js_fixers = ['prettier', 'eslint']
+
+let g:ale_linters = {'python': ['flake8', 'mypy']}
+let g:ale_fixers = {'python': ['black','isort'], 'javascript': js_fixers, 'javascript.jsx': js_fixers, 'typescript': js_fixers, 'typescriptreact': js_fixers }
+" auto linter fix on save
+let g:ale_fix_on_save=1
