@@ -113,3 +113,35 @@ let g:ale_linters = {'python': ['flake8', 'mypy']}
 let g:ale_fixers = {'python': ['black','isort'], 'javascript': js_fixers, 'javascript.jsx': js_fixers, 'typescript': js_fixers, 'typescriptreact': js_fixers }
 " auto linter fix on save
 let g:ale_fix_on_save=1
+
+" Auto run a specific pytest
+function! RunCurrentPythonTest()
+python3 << EOF
+
+import re
+import vim  # https://vimhelp.org/if_pyth.txt.html
+
+cursor = vim.current.window.cursor
+test_filename = vim.eval("expand('%p')")
+
+test_name = None
+class_name = None
+for line_no in range(cursor[0]-1, -1, -1):
+    line = vim.current.buffer[line_no]
+    if not test_name and line.lstrip().startswith('def test'):
+        test_name = re.findall('def (\w+)\(', line)[0]
+    if not class_name and line.startswith('class'):
+        class_name = re.findall('class (\w+)\(', line)[0]
+        break
+
+cmd = f'!pytest {test_filename}'
+if class_name:
+    cmd += f'::{class_name}'
+if test_name:
+    cmd += f'::{test_name}'
+vim.command(cmd)
+
+EOF
+endfunction
+
+map     ;t          :call RunCurrentPythonTest()<CR>
