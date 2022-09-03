@@ -43,4 +43,3 @@ auto_poetry_shell
 
 # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 plugins=(zsh-autosuggestions)
-
