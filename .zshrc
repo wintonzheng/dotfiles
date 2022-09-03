@@ -25,5 +25,22 @@ function cd {
 
 auto_pipenv_shell
 
+# automatic poetry shell
+function auto_poetry_shell {
+    if [ ! -n "${POETRY_ACTIVE+1}" ]; then
+        if [ -f "pyproject.toml" ] ; then
+            poetry shell
+        fi
+    fi
+}
+
+function cd {
+    builtin cd "$@"
+    auto_poetry_shell
+}
+
+auto_poetry_shell
+
 # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 plugins=(zsh-autosuggestions)
+
