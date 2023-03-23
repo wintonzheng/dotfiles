@@ -6,3 +6,4 @@ brew install byobu
 brew install ctags
 brew install tldr
 brew install poetry the_silver_searcher
+brew install pre-commit gh
