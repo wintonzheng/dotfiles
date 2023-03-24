@@ -7,3 +7,4 @@ brew install ctags
 brew install tldr
 brew install poetry the_silver_searcher
 brew install pre-commit gh
+brew install the_silver_searcher
